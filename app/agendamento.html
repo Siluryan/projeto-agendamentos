@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agendamento de Coleta</title>
+</head>
+<script>
+    document.getElementById('agendamentoForm').addEventListener('submit', function (event) {
+        var nome = document.getElementById('nome').value;
+        if (nome.trim() === '') {
+            alert('Por favor, preencha o campo Nome.');
+            event.preventDefault();
+        }
+    });
+</script>
+<script>
+    var agendamentos = [];
+
+    document.getElementById('agendamentoForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var nome = document.getElementById('nome').value;
+        // Coleta outros dados do formulário
+
+        var agendamento = {
+            nome: nome,
+            // Outros campos
+        };
+
+        agendamentos.push(agendamento);
+
+        // Você pode enviar esses dados para um servidor para armazenamento permanente
+        console.log(agendamentos);
+    });
+</script>
+
+<body>
+    <h1>Agendar Coleta de Eletrodomésticos</h1>
+    <form id="agendamentoForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <!-- Outros campos do formulário -->
+
+        <input type="submit" value="Agendar">
+    </form>
+</body>
+</html>
